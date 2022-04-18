@@ -26,7 +26,7 @@ const linking: LinkingOptions<RootStackParamList> = {
           },
           TabFour: {
             screens: {
-              ProfileScreen: 'four',
+              AccountScreen: 'four',
             },
           },
         },

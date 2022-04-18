@@ -18,7 +18,7 @@ import SearchScreen from '../screens/SearchScreen';
 import HomeScreen from '../screens/HomeScreen';
 import CategoriesScreen from '../screens/CategoriesScreen';
 import ArticlesScreen from '../screens/ArticlesScreen';
-import ProfileScreen from '../screens/ProfileScreen';
+import AccountScreen from '../screens/AccountScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
@@ -171,7 +171,7 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="TabFour"
-        component={ProfileScreen}
+        component={AccountScreen}
         options={{
           title: 'Account',
           tabBarIcon: ({ color }) => <Ionicons name="person-circle-outline" size={22} color={color} />,
