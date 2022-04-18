@@ -9,10 +9,17 @@ import { ColorSchemeName, Pressable, View } from 'react-native';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 
-import ModalScreen from '../screens/ModalScreen';
+// Modals
+import CartScreen from '../screens/CartScreen';
+import NotificationScreen from '../screens/NotificationScreen';
+import SearchScreen from '../screens/SearchScreen';
+
+// Screens
+import HomeScreen from '../screens/HomeScreen';
+import CategoriesScreen from '../screens/CategoriesScreen';
+import ArticlesScreen from '../screens/ArticlesScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
-import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
 
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
@@ -35,7 +42,9 @@ function RootNavigator() {
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
+        <Stack.Screen name="Cart" component={CartScreen} />
+        <Stack.Screen name="Notification" component={NotificationScreen} />
+        <Stack.Screen name="Search" component={SearchScreen} />
       </Stack.Group>
     </Stack.Navigator>
   );
@@ -54,14 +63,14 @@ function BottomTabNavigator() {
       }}>
       <BottomTab.Screen
         name="TabOne"
-        component={TabOneScreen}
+        component={HomeScreen}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
           title: 'Home',
           tabBarIcon: ({ color }) => <Entypo name="home" size={22} color={color} />,
           headerRight: () => (
             <View style={{ flexDirection: 'row' }}>
               <Pressable
-                onPress={() => navigation.navigate('Modal')}
+                onPress={() => navigation.navigate('Notification')}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                 })}>
@@ -73,7 +82,7 @@ function BottomTabNavigator() {
                 />
               </Pressable>
               <Pressable
-                onPress={() => navigation.navigate('Modal')}
+                onPress={() => navigation.navigate('Cart')}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                 })}>
@@ -90,14 +99,14 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="TabTwo"
-        component={TabTwoScreen}
+        component={CategoriesScreen}
         options={({ navigation }: RootTabScreenProps<'TabTwo'>) => ({
           title: 'Categories',
           tabBarIcon: ({ color }) => <Ionicons name="grid-outline" size={22} color={color} />,
           headerRight: () => (
             <View style={{ flexDirection: 'row' }}>
               <Pressable
-                onPress={() => navigation.navigate('Modal')}
+                onPress={() => navigation.navigate('Search')}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                 })}>
@@ -109,7 +118,7 @@ function BottomTabNavigator() {
                 />
               </Pressable>
               <Pressable
-                onPress={() => navigation.navigate('Modal')}
+                onPress={() => navigation.navigate('Cart')}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                 })}>
@@ -126,14 +135,14 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="TabThree"
-        component={TabTwoScreen}
+        component={ArticlesScreen}
         options={({ navigation }: RootTabScreenProps<'TabThree'>) => ({
           title: 'Articles',
           tabBarIcon: ({ color }) => <Ionicons name="add-circle-outline" size={22} color={color} />,
           headerRight: () => (
             <View style={{ flexDirection: 'row' }}>
               <Pressable
-                onPress={() => navigation.navigate('Modal')}
+                onPress={() => navigation.navigate('Search')}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                 })}>
@@ -145,7 +154,7 @@ function BottomTabNavigator() {
                 />
               </Pressable>
               <Pressable
-                onPress={() => navigation.navigate('Modal')}
+                onPress={() => navigation.navigate('Cart')}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                 })}>
@@ -162,7 +171,7 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="TabFour"
-        component={TabTwoScreen}
+        component={ProfileScreen}
         options={{
           title: 'Account',
           tabBarIcon: ({ color }) => <Ionicons name="person-circle-outline" size={22} color={color} />,

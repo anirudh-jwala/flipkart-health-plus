@@ -11,27 +11,29 @@ const linking: LinkingOptions<RootStackParamList> = {
         screens: {
           TabOne: {
             screens: {
-              TabOneScreen: 'one',
+              HomeScreen: 'one',
             },
           },
           TabTwo: {
             screens: {
-              TabTwoScreen: 'two',
+              CategoriesScreen: 'two',
             },
           },
           TabThree: {
             screens: {
-              TabThreeScreen: 'three',
+              ArticlesScreen: 'three',
             },
           },
           TabFour: {
             screens: {
-              TabFouceScreen: 'four',
+              ProfileScreen: 'four',
             },
           },
         },
       },
-      Modal: 'modal',
+      Cart: 'cart',
+      Notification: 'notification',
+      Search: 'search',
       NotFound: '*',
     },
   },
